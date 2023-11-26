@@ -1,0 +1,17 @@
+snowsql_config_path = "~/.snowsql/config"
+snowsql_connection_name = "kek"
+
+[default]
+input_parameters = "(salary float)"
+return_type = "int"
+file = "app.zip"
+name = "usd_to_turkishlira"
+handler = "app.main"
+execute_as_caller = true
+
+[kek]
+database = "KEK_DB"
+schema = "ANALYTICS"
+warehouse = "KEK_WH"
+role = "KEK_ROLE"
+overwrite = true
