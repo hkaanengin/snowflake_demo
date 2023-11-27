@@ -34,9 +34,23 @@ def create_user_view(session):
     user_details_union_df = user_details_union_df.with_column_renamed(F.col('"country"'), "COUNTRY")
     user_details_union_df = user_details_union_df.with_column_renamed(F.col('"birthdate"'), "BIRTHDATE")
     user_details_union_df = user_details_union_df.with_column('"salary"', F.col('"salary"').cast("int")).with_column_renamed(F.col('"salary"'), "SALARY")
+
     user_details_union_df = user_details_union_df.with_column_renamed(F.col('"title"'), "TITLE")
     user_details_union_df = user_details_union_df.with_column_renamed(F.col('"comments"'), "COMMENTS")
     user_details_union_df = user_details_union_df.with_column_renamed(F.col('"registration_dttm"'), "REGISTRATION_DTTM")
+
+    user_details_union_df = user_details_union_df.select(F.col("FIRST_NAME"), \
+                                                        F.col("LAST_NAME"), \
+                                                        F.col("EMAIL"), \
+                                                        F.col("GENDER"), \
+                                                        F.col("IP_ADDRESS"), \
+                                                        F.col("COUNTRY"), \
+                                                        F.col("BIRTHDATE"), \
+                                                        F.call_udf("ANALYTICS.SALARY_TO_TL", F.col("SALARY")), \
+                                                        F.col("TITLE"), \
+                                                        F.col("COMMENTS"), \
+                                                        F.col("REGISTRATION_DTTM")
+                                                        )
     
     user_details_union_df = user_details_union_df.with_column("p_date", F.lit(p_date))
     user_details_union_df = user_details_union_df.with_column("p_time", F.lit(p_time))
