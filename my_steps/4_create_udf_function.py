@@ -6,18 +6,10 @@ from snowflake.snowpark.types import IntegerType, DoubleType
 def create_udf_func(session):
     # convert_to_tr = udf(lambda x: x * 28, return_type= IntegerType(), input_types=IntegerType(), name="usd_to_tl", replace=True)
     # session.udf(convert_to_tr)
-    session.use_schema('ANALYTICS')
 
     add_one = udf(lambda x: x+1, return_type=IntegerType(), input_types=[IntegerType()], name="my_udf", replace=True)
-    udf(name="minus_one", is_permanent=True, stage_location="@my_stage", replace=True)
 
-def create_udtf_func(session):
-    # convert_to_tr = udf(lambda x: x * 28, return_type= IntegerType(), input_types=IntegerType(), name="usd_to_tl", replace=True)
-    # session.udf(convert_to_tr)
-    session.use_schema('ANALYTICS')
-
-    add_one = udf(lambda x: x+1, return_type=IntegerType(), input_types=[IntegerType()], name="my_udf", replace=True)
-    udf(name="minus_one", is_permanent=True, stage_location="@my_stage", replace=True)
+    return add_one
 
 
 if __name__ == "__main__":
