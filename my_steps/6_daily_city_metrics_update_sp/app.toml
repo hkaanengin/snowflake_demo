@@ -1,5 +1,5 @@
 snowsql_config_path = "~/.snowsql/config"
-snowsql_connection_name = "dev"
+snowsql_connection_name = "kek"
 
 [default]
 input_parameters = "()"
