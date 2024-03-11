@@ -13,7 +13,7 @@ def create_udf_func(session):
 
 
 if __name__ == "__main__":
-    import snowpark_utils
+    import utils.snowpark_utils as snowpark_utils
     
     session = snowpark_utils.get_snowpark_session()
 

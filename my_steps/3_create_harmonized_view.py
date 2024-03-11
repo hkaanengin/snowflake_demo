@@ -110,7 +110,7 @@ def create_pos_view_stream(session):
                         SHOW_INITIAL_ROWS = TRUE').collect()
 
 if __name__ == "__main__":
-    import snowpark_utils
+    import utils.snowpark_utils as snowpark_utils
     from datetime import datetime, timedelta
     
     session = snowpark_utils.get_snowpark_session()
