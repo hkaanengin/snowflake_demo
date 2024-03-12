@@ -54,7 +54,7 @@ if __name__ == "__main__":
     parent_dir = os.path.dirname(current_dir)
     sys.path.append(parent_dir)
 
-    import snowpark_utils
+    import utils.snowpark_utils as snowpark_utils
 
     session = snowpark_utils.get_snowpark_session()
 
