@@ -11,7 +11,6 @@ def create_udf_func(session):
 
     return add_one
 
-
 if __name__ == "__main__":
     import utils.snowpark_utils as snowpark_utils
     

@@ -14,7 +14,6 @@ TABLE_DICT = {
     "customer": {"schema": "RAW_CUSTOMER", "tables": CUSTOMER_TABLES}
 }
 
-
 def load_raw_table(session, tname=None, s3dir=None, year=None, schema=None):
     session.use_schema(schema)
     print(tname,s3dir, year, schema)
@@ -45,7 +44,6 @@ def load_all_raw_tables(session):
             load_raw_table(session, tname=tname, s3dir=s3dir, schema=schema)
 
     _ = session.sql("ALTER WAREHOUSE KEK_WH SET WAREHOUSE_SIZE = XSMALL").collect()
-
 
 if __name__ == "__main__":
     # Add the utils package to our path and import the snowpark_utils function
